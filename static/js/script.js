@@ -27,7 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const bubble = document.createElement("div");
     bubble.className = "msg-bubble";
-    bubble.innerHTML = text;
+
+    if (role === "bot" && window.marked) {
+      bubble.innerHTML = marked.parse(text);
+    } else {
+      bubble.innerHTML = text;
+    }
 
     msg.appendChild(avatar);
     msg.appendChild(bubble);
