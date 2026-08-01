@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedAssist AI - Medical Assistant</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-title">
+          <span class="header-icon">🩺</span>
+          <div>
+            <h1>MedAssist AI</h1>
+            <p>Your medical knowledge assistant</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="clearChatBtn" class="btn-ghost" title="Clear chat">
+            Clear chat
+          </button>
+        </div>
+      </header>
+
+      <!-- Chat window -->
+      <main class="chat-window" id="chatWindow">
+        <!-- Welcome state (shown only when chat is empty) -->
+        <div class="welcome" id="welcomeState">
+          <div class="welcome-icon">🩺</div>
+          <h2>Hi, I'm MedAssist AI</h2>
+          <p>Ask me about symptoms, conditions, medicines, or treatments.</p>
+
+          <div class="quick-chips">
+            <button class="chip" data-question="What is Diabetes?">
+              What is Diabetes?
+            </button>
+            <button class="chip" data-question="Symptoms of Asthma">
+              Symptoms of Asthma
+            </button>
+            <button class="chip" data-question="What is Pneumonia?">
+              What is Pneumonia?
+            </button>
+          </div>
+        </div>
+
+        <!-- Messages get appended here -->
+        <div class="messages" id="messages"></div>
+      </main>
+
+      <!-- Disclaimer -->
+      <div class="disclaimer">
+        ⚠️ Educational purposes only. Consult a healthcare professional for
+        diagnosis or treatment.
+      </div>
+
+      <!-- Input bar -->
+      <form class="input-bar" id="chatForm" autocomplete="off">
+        <input
+          type="text"
+          id="messageInput"
+          placeholder="Ask a medical question, e.g. What are the symptoms of Asthma?"
+          autocomplete="off"
+        />
+        <button type="submit" id="sendBtn" aria-label="Send message">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M4 12L20 4L13 20L11 13L4 12Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
